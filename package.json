@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test:frontend" : "nx test nutrition-frontend",
-    "test:backend" : "nx test nutrition-backend",
-    "serve:backend" : "nx serve nutrition-backend",
-    "serve:frontend" : "nx serve nutrition-frontend"
+    "test:frontend": "nx test nutrition-frontend",
+    "test:backend": "nx test nutrition-backend",
+    "serve:backend": "nx serve nutrition-backend",
+    "serve:frontend": "nx serve nutrition-frontend"
   },
   "private": true,
   "devDependencies": {
@@ -19,6 +19,7 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "~16.1.0",
     "@angular/language-service": "~16.1.0",
+    "@nestjs/jwt": "^10.1.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nx/angular": "^16.5.5",
@@ -37,6 +38,7 @@
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
+    "bcrypt": "^5.1.1",
     "cypress": "^12.16.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
