@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  frontend:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run frontend:dev:docker
+    ports:
+      - 4203:4200
+
+  backend:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run backend:dev:docker
+    ports:
+      - 4310:3000 # API Entry port
+      - 4311:4311 # Server Debugging port
+
+volumes:
+  mono-node-modules: null
