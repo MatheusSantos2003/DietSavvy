@@ -27,7 +27,7 @@ export class AuthService {
       entity.email = user.email;
       entity.name = user.name;
 
-      entity.password = await this.hashPassowrd(user.password);
+      entity.password = await this.hashPassword(user.password);
 
      const found =  await this.usersRepository.findOneBy({ email: entity.email });
 
@@ -86,7 +86,7 @@ export class AuthService {
   }
 
 
-  private async hashPassowrd(password:any): Promise<string> {
+  private async hashPassword(password:any): Promise<string> {
 
     const salts = Number(process.env.HASH_SALT);
 
