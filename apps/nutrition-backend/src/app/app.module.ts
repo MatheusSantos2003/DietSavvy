@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { UserEntity } from './entities/user.entity';
+import { CsvReadModule } from './modules/csv-read/csv-read.module';
+import { CsvReadService } from './modules/csv-read/csv-read.service';
+import { FoodEntity } from './entities/food.entity';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
@@ -16,8 +20,10 @@ import { UserEntity } from './entities/user.entity';
       database: process.env.DB_DEFAULT_DB || 'test',
       synchronize: true,
       logging: false,
-      entities: [UserEntity],
+      entities: [UserEntity,FoodEntity],
     }),
+    CsvReadModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [],

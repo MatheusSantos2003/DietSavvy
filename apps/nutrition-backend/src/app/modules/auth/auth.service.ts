@@ -18,7 +18,7 @@ export class AuthService {
   public async listAllUsers(): Promise<ApiResponse<User[]>> {
     const users =  await this.usersRepository.find();
 
-    return { sucess:true, message: "Succesfully listed users ",result: users } as ApiResponse<User[]>
+    return { success:true, message: "Succesfully listed users ",result: users } as ApiResponse<User[]>
   }
 
   public async createUser(user: User): Promise<ApiResponse<any>>  {
@@ -34,16 +34,16 @@ export class AuthService {
      if(!found && !found?.id) {
       const result =  await this.usersRepository.insert(entity);
 
-      return { statusCode:201 ,sucess:true, message: "Succesfully created user ",result: result.raw.email } as ApiResponse<any>
+      return { statusCode:201 ,success:true, message: "Succesfully created user ",result: result.raw.email } as ApiResponse<any>
 
 
      } else {
-      return { statusCode:500, sucess:false, message: "User Already Exists!" } as ApiResponse<any>
+      return { statusCode:500, success:false, message: "User Already Exists!" } as ApiResponse<any>
      }
 
 
     } catch (error:any) {
-      return { statusCode:500, sucess:false, message: "There was a problem creating a new user", error: error.message } as ApiResponse<any>
+      return { statusCode:500, success:false, message: "There was a problem creating a new user", error: error.message } as ApiResponse<any>
     }
   }
 
@@ -69,18 +69,18 @@ export class AuthService {
          const jwt = {
             access_token:token
           };
-          return { sucess:true, message: "Succesfully Logged In! ", result: jwt } as ApiResponse<any>
+          return { success:true, message: "Succesfully Logged In! ", result: jwt } as ApiResponse<any>
         } else {
-          return {  statusCode: 500, sucess:false, message: "Invalid Email or Password!", error: "Invalid Email or Password!"} as ApiResponse<any>
+          return {  statusCode: 500, success:false, message: "Invalid Email or Password!", error: "Invalid Email or Password!"} as ApiResponse<any>
         }
 
 
      } else {
-      return { statusCode: 500, sucess:false, message: "User not Found" } as ApiResponse<any>
+      return { statusCode: 500, success:false, message: "User not Found" } as ApiResponse<any>
      }
 
     } catch (error:any) {
-      return { statusCode:500, sucess:false, message: "There was a problem finding a user", error: error.message } as ApiResponse<any>
+      return { statusCode:500, success:false, message: "There was a problem finding a user", error: error.message } as ApiResponse<any>
     }
 
   }
