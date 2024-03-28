@@ -16,7 +16,7 @@ services:
       service: nx-app-base
     command: npm run backend:dev:docker
     ports:
-      - 4310:3000 # API Entry port
+      - 4310:4310 # API Entry port
       - 4311:4311 # Server Debugging port
 
 volumes:
