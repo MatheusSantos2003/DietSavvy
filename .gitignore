@@ -42,3 +42,7 @@ Thumbs.db
 .env
 
 .nx/cache
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

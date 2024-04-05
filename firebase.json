@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "nutrition-frontend",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

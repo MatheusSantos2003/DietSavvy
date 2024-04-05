@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dietsavvy-bc1f8": {
+      "hosting": {
+        "nutrition-frontend": [
+          "dietsavvy-bc1f8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dietsavvy-bc1f8"
+  }
+}

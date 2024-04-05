@@ -5,7 +5,6 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-
     "@nx/jest:jest": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
       "cache": true,

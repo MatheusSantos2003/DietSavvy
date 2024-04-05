@@ -8,18 +8,24 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/nutrition-frontend",
         "index": "apps/nutrition-frontend/src/index.html",
         "main": "apps/nutrition-frontend/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/nutrition-frontend/tsconfig.app.json",
         "assets": [
           "apps/nutrition-frontend/src/favicon.ico",
           "apps/nutrition-frontend/src/assets"
         ],
-        "styles": ["apps/nutrition-frontend/src/styles.scss"],
+        "styles": [
+          "apps/nutrition-frontend/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -69,11 +75,15 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/nutrition-frontend/jest.config.ts"
       }
@@ -83,6 +93,23 @@
       "options": {
         "buildTarget": "nutrition-frontend:build"
       }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "version": 2
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "nutrition-frontend:build:production",
+          "serveTarget": "nutrition-frontend:serve:production"
+        },
+        "development": {
+          "buildTarget": "nutrition-frontend:build:development",
+          "serveTarget": "nutrition-frontend:serve:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   }
 }
