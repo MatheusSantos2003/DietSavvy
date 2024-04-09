@@ -57,6 +57,10 @@ export class AuthService {
     return this.auth.currentUser?.uid
   }
 
+  get getCurrentUserProfile() {
+    return this.auth.currentUser
+  }
+
   async SignIn(email: string, password: string) {
     const provider = new GoogleAuthProvider();
     const credential = await signInWithPopup(this.auth, provider);
@@ -67,7 +71,7 @@ export class AuthService {
     const credential = await signInWithPopup(this.auth, provider);
     this.UpdateUserFirebaseDoc(credential.user);
     console.log('credential', credential);
-    this._router.navigate(['/auth/login']);
+    this._router.navigate(['/home']);
   }
 
   async SignOut() {

@@ -3,3 +3,23 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+@variants hover {
+  .open-nav {
+
+    .logo {
+      @apply w-full flex justify-center items-center
+    }
+
+    li {
+      @apply w-full;
+      // @apply justify-evenly;
+    }
+
+    span {
+      @apply block;
+    }
+
+  }
+}

@@ -5,8 +5,8 @@ import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './register/register.component';
 import { inject } from '@angular/core';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedIn = () => redirectLoggedInTo('auth/home');
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
+const redirectLoggedIn = () => redirectLoggedInTo('home');
 
 export const routes: Routes = [
   { path: "" ,
@@ -18,3 +18,5 @@ export const routes: Routes = [
     ]
   },
 ];
+
+

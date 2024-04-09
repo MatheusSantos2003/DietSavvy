@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { BodyIndicatorComponent } from './shared/components/body-indicator/body-indicator.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule,BodyIndicatorComponent],
+  imports: [RouterModule,BodyIndicatorComponent,SidebarComponent],
   selector: 'nutrition-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
