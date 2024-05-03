@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 export type SideBarItem  = {
@@ -13,6 +13,7 @@ export type SideBarItem  = {
   selector: 'nutrition-app-sidebar',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
@@ -39,9 +40,17 @@ export class SidebarComponent {
     {
       label: 'Alimentos',
       icon: 'bi-egg-fried',
-      link: 'influencers',
+      link: 'food',
       active: true,
     },
+    {
+      // TODO[may 3, 2024]: add a better icon since bootstrap doesn't have one for this
+      // like a plate of food, a plate with a fork and knife, something like that
+      label: 'Dieta',
+      icon: 'bi-file-earmark-medical',
+      link: 'diet',
+      active: false
+    }
 
   ];
 

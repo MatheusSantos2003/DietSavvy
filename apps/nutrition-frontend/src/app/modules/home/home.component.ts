@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private _authService: AuthService, private _router: Router) {}
 
   ngOnInit(): void {
-    if(!this._authService.getCurrentUserProfile) return
+    if(!this._authService.getCurrentUserProfile) return;
        this.user = this._authService.getCurrentUserProfile;
   }
 
