@@ -15,6 +15,9 @@ export const routes: Routes = [
       { path: 'home', component: AuthComponent, ...canActivate(redirectUnauthorizedToLogin) },
       { path: 'login', component: RegisterComponent, ...canActivate(redirectLoggedIn)   },
       { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedIn) },
+      // { path: 'home', component: AuthComponent,  },
+      // { path: 'login', component: RegisterComponent,    },
+      // { path: 'register', component: RegisterComponent,  },
     ]
   },
 ];

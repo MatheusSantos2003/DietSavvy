@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import {
   Auth,
-  ConfirmationResult,
   getAuth,
   signOut,
   signInWithPopup,
@@ -13,7 +12,11 @@ import {
   updateEmail,
   updateProfile,
   User as FirebaseUser,
+  signInWithEmailAndPassword,
+
+  UserCredential,
 } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import {
   doc,
   docData,
@@ -23,7 +26,12 @@ import {
   docSnapshots,
   DocumentReference,
   Firestore,
+  query,
+  collection,
+  where,
+  getDocs,
 } from '@angular/fire/firestore';
+import { DocumentData } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root',
 })
@@ -61,9 +69,33 @@ export class AuthService {
     return this.auth.currentUser
   }
 
-  async SignIn(email: string, password: string) {
-    const provider = new GoogleAuthProvider();
-    const credential = await signInWithPopup(this.auth, provider);
+  async SignIn(email: string, password: string): Promise<any> {
+
+   const result = await this.getUserFirebaseDocByEmail(email);
+
+   if (result) {
+     const credentials = await signInWithEmailAndPassword(
+       this.auth,
+       email.trim(),
+       password.trim()
+     );
+     this.UpdateUserFirebaseDoc(credentials.user);
+     console.log('credential', credentials);
+     this._router.navigate(['/home']);
+   } else {
+     try {
+       const credentials = await createUserWithEmailAndPassword(
+         this.auth,
+         email.trim(),
+         password.trim()
+       );
+       this.UpdateUserFirebaseDoc(credentials.user);
+       this._router.navigate(['/home']);
+     } catch (error) {
+       console.log('error', error);
+       return undefined;
+     }
+   }
   }
 
   async SignInGoogle() {
@@ -102,5 +134,20 @@ export class AuthService {
     };
 
     await setDoc(docRef, data);
+  }
+
+  async getUserFirebaseDocByEmail(email: string): Promise<DocumentData | undefined> {
+
+    const coll = collection(this.afs, 'users');
+    const q = query(coll, where('email', '==', email));
+
+    const querySnapshot = await getDocs(q);
+
+    if(querySnapshot.empty) {
+      return undefined;
+    }
+
+    return querySnapshot.docs[0].data()
+
   }
 }
