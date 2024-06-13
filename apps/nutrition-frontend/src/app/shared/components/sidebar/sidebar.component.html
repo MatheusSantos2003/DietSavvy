@@ -1,40 +1,40 @@
-<div class="w-full flex flex-col h-[100vh] absolute hover:absolute hover:open-nav hover:z-10  bg-primary-500 items-center">
+<div
+  class="w-full flex flex-col h-[100vh] absolute hover:absolute hover:open-nav hover:z-10  bg-dark_secondary items-center border-0" >
   <!-- hover:open-nav hover:z-10 -->
 
 
 
-    <ul class="w-full my-3 flex flex-col items-center">
-      <li
-        class="flex items-center justify-center w-full h-12  rounded-sm text-xl text-white cursor-pointer hover:bg-primary-900  hover:text-white transition-colors duration-200"
-        *ngFor="let item of items" [class.active]="item.active" (click)="itemClick(item)">
-        <div class="flex justify-center w-20 mt-1">
-          <i class=" bi" [ngClass]="item.icon"></i>
-        </div>
-        <span class=" text-white flex-1 hidden ml-2 text-sm">
-          {{ item.label }}
-        </span>
-      </li>
-    </ul>
+  <ul class="w-full my-3 flex flex-col items-center">
+    <li
+      class="flex items-center justify-center w-full h-12  rounded-sm text-xl text-white cursor-pointer hover:bg-primary-900  hover:text-white transition-colors duration-200"
+      *ngFor="let item of items" [class.active]="item.active" (click)="itemClick(item)">
+      <div class="flex justify-center w-20 mt-1">
+        <i class=" bi" [ngClass]="item.icon" class="text-primary-500"></i>
+      </div>
+      <span class="flex-1 hidden ml-2 text-sm text-primary-500">
+        {{ item.label }}
+      </span>
+    </li>
+  </ul>
 
-    <div class="flex-1"></div>
+  <div class="flex-1"></div>
 
-    <div
-    class="flex items-center w-full h-12 my-1 rounded-sm text-xl text-white cursor-pointer  hover:text-white transition-colors duration-200"
-    >
+  <div
+    class="flex items-center w-full h-12 my-1 rounded-sm text-xl text-white cursor-pointer  hover:text-white transition-colors duration-200">
     <div class="flex justify-center w-20">
 
-    <img *ngIf="user && user.photoURL" [src]="user.photoURL !== '' ? user.photoURL : 'null' " class="rounded-full w-10 h-10"  alt="">
+      <img *ngIf="user && user.photoURL" [src]="user.photoURL !== '' ? user.photoURL : 'null' "
+        class="rounded-full w-10 h-10" alt="">
     </div>
   </div>
 
-    <div
-      (click)="logOutEvent.emit()"
-      class="flex items-center w-full h-12 my-1 rounded-sm text-xl text-white cursor-pointer hover:bg-primary-900 hover:text-white transition-colors duration-200"
-      >
-      <div class="flex justify-center w-20">
-        <i class=" bi bi-box-arrow-right"></i>
-      </div>
-      <span class=" flex-1 hidden ml-2 text-sm">
-        Logout
-      </span>
+  <div (click)="logOutEvent.emit()"
+    class="flex items-center w-full h-12 my-1 rounded-sm text-xl text-white cursor-pointer hover:bg-primary-900 hover:text-white transition-colors duration-200">
+    <div class="flex justify-center w-20">
+      <i class=" bi bi-box-arrow-right text-primary-500"></i>
     </div>
+    <span class=" flex-1 hidden ml-2 text-sm text-primary-500">
+      Logout
+    </span>
+  </div>
+</div>

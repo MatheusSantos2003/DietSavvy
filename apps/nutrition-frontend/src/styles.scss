@@ -27,4 +27,14 @@
 
 * {
   font-family: "Rajdhani", sans-serif;
+  border-style: none
 }
+
+// .custom-container .mat-dialog-container {
+//   border-radius: 0.75rem !important;
+// }
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 2rem !important;
+  box-shadow: none !important;
+}
+

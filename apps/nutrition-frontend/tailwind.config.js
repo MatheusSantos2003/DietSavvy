@@ -13,6 +13,8 @@ module.exports = {
         success: '#49a27b',
         warning: '#ecce31',
         error: '#e82828',
+        dark_primary: '#0D070C',
+        dark_secondary: '#201D22',
         primary: {
           50: '#e8f5e9',
           100: '#c8e6c9',

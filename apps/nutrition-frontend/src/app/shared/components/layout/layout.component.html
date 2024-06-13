@@ -1,14 +1,15 @@
 
-<div class="flex w-[100vw] h-[100vh]">
-	<div class="w-20 h-full relative ">
+<div class="flex w-[100vw] h-[100vh] ">
+
+	<div class="w-20 h-full relative flex ">
 		<!-- hover:w-60 hover:h-100vh -->
-		<div class="w-full border-r-dark hover:w-60 hover:h-100v border-r-[1px] absolute transition-all duration-200">
+		<div class=" w-full border-r-dark_secondary hover:w-60 hover:h-100v border-r-[1px] absolute transition-all duration-200">
 			<ng-content select="[sidebar]"></ng-content>
 		</div>
 	</div>
 
 
-	<div class="flex-1 bg-neutral-50 overflow-y-auto">
+	<div class="flex-1 bg-dark_primary overflow-y-auto">
 		<ng-content select="[content]"></ng-content>
 	</div>
 </div>

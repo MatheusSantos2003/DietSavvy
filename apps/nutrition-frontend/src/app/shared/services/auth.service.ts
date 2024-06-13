@@ -43,14 +43,14 @@ export class AuthService {
     private _router: Router
   ) {
     this.auth = getAuth();
-    this.auth
-      .onAuthStateChanged(async (user) => {
-        if (user) {
-          const token = await user.getIdToken();
-          console.log('user', user);
-          console.log('token', token);
-        }
-      });
+    // this.auth
+    //   .onAuthStateChanged(async (user) => {
+    //     if (user) {
+    //       const token = await user.getIdToken();
+    //       console.log('user', user);
+    //       console.log('token', token);
+    //     }
+    //   });
   }
 
   public get userState$() {
