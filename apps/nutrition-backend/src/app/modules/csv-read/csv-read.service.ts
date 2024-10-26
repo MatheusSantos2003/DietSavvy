@@ -17,7 +17,7 @@ export class CsvReadService {
   // async lerCSV() {
   //   let results = [];
 
-  //   const conteudoArquivo = await fs.promises.readFile("C:\\Github\\DietSavvy\\apps\\nutrition-backend\\src\\assets\\taco_phase_5.json", 'utf-8')
+  //   const conteudoArquivo = await fs.promises.readFile('/home/matheus/projects/DietSavvy/apps/nutrition-backend/src/assets/taco_phase_5.json', 'utf-8')
   //   const jsonData = JSON.parse(conteudoArquivo)
 
   //   results = [...jsonData];

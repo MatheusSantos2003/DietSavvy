@@ -1,98 +1,98 @@
-// @import '~@angular/material/theming';
-// @import '~@angular/material/core/theming/palette';
+@import '~@angular/material/theming';
+@import '~@angular/material/core/theming/palette';
 
-// // Define the primary palette
-// $primary-palette: (
-//   50: #E8F5E9,
-//   100: #C8E6C9,
-//   200: #A5D6A7,
-//   300: #81C784,
-//   400: #66BB6A,
-//   500: #4CAF50,
-//   // Your primary color
-//   600: #43A047,
-//   700: #388E3C,
-//   800: #2E7D32,
-//   900: #1B5E20,
-//   A100: #B9F6CA,
-//   A200: #69F0AE,
-//   A400: #00E676,
-//   A700: #00C853,
-//   contrast: (50: rgba(0, 0, 0, 0.87),
-//     100: rgba(0, 0, 0, 0.87),
-//     200: rgba(0, 0, 0, 0.87),
-//     300: rgba(0, 0, 0, 0.87),
-//     400: rgba(0, 0, 0, 0.87),
-//     500: white,
-//     600: white,
-//     700: white,
-//     800: white,
-//     900: white,
-//     A100: rgba(0, 0, 0, 0.87),
-//     A200: rgba(0, 0, 0, 0.87),
-//     A400: rgba(0, 0, 0, 0.87),
-//     A700: rgba(0, 0, 0, 0.87),
-//   )
-// );
+// Define the primary palette
+$primary-palette: (
+  50: #E8F5E9,
+  100: #C8E6C9,
+  200: #A5D6A7,
+  300: #81C784,
+  400: #66BB6A,
+  500: #4CAF50,
+  // Your primary color
+  600: #43A047,
+  700: #388E3C,
+  800: #2E7D32,
+  900: #1B5E20,
+  A100: #B9F6CA,
+  A200: #69F0AE,
+  A400: #00E676,
+  A700: #00C853,
+  contrast: (50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(0, 0, 0, 0.87),
+  )
+);
 
-// // Define the secondary palette
-// $secondary-palette: (
-//   50: #F3E5F5,
-//   100: #E1BEE7,
-//   200: #CE93D8,
-//   300: #BA68C8,
-//   400: #AB47BC,
-//   500: #9C27B0,
-//   // Use any color you prefer for secondary palette
-//   600: #8E24AA,
-//   700: #7B1FA2,
-//   800: #6A1B9A,
-//   900: #4A148C,
-//   A100: #EA80FC,
-//   A200: #E040FB,
-//   A400: #D500F9,
-//   A700: #AA00FF,
-//   contrast: (50: rgba(0, 0, 0, 0.87),
-//     100: rgba(0, 0, 0, 0.87),
-//     200: rgba(0, 0, 0, 0.87),
-//     300: rgba(0, 0, 0, 0.87),
-//     400: rgba(0, 0, 0, 0.87),
-//     500: white,
-//     600: white,
-//     700: white,
-//     800: white,
-//     900: white,
-//     A100: rgba(0, 0, 0, 0.87),
-//     A200: rgba(0, 0, 0, 0.87),
-//     A400: rgba(0, 0, 0, 0.87),
-//     A700: rgba(0, 0, 0, 0.87),
-//   )
-// );
+// Define the secondary palette
+$secondary-palette: (
+  50: #F3E5F5,
+  100: #E1BEE7,
+  200: #CE93D8,
+  300: #BA68C8,
+  400: #AB47BC,
+  500: #9C27B0,
+  // Use any color you prefer for secondary palette
+  600: #8E24AA,
+  700: #7B1FA2,
+  800: #6A1B9A,
+  900: #4A148C,
+  A100: #EA80FC,
+  A200: #E040FB,
+  A400: #D500F9,
+  A700: #AA00FF,
+  contrast: (50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(0, 0, 0, 0.87),
+    A700: rgba(0, 0, 0, 0.87),
+  )
+);
 
-// // Define the background palette
-// $background-palette: (
-//   background: #0D070C,
-//   // Your main background color
-//   card: #201D22,
-//   // Your secondary background color
-//   dialog: #201D22,
-//   disabled-button: rgba(255, 255, 255, 0.12),
-//   raised-button: #201D22,
-//   focused-button: rgba(255, 255, 255, 0.12),
-//   selected-button: #201D22,
-//   selected-disabled-button: rgba(255, 255, 255, 0.12),
-//   disabled-button-toggle: rgba(255, 255, 255, 0.12),
-//   unselected-chip: rgba(255, 255, 255, 0.12),
-//   disabled-list-option: rgba(255, 255, 255, 0.12),
-// );
+// Define the background palette
+$background-palette: (
+  background: #0D070C,
+  // Your main background color
+  card: #201D22,
+  // Your secondary background color
+  dialog: #201D22,
+  disabled-button: rgba(255, 255, 255, 0.12),
+  raised-button: #201D22,
+  focused-button: rgba(255, 255, 255, 0.12),
+  selected-button: #201D22,
+  selected-disabled-button: rgba(255, 255, 255, 0.12),
+  disabled-button-toggle: rgba(255, 255, 255, 0.12),
+  unselected-chip: rgba(255, 255, 255, 0.12),
+  disabled-list-option: rgba(255, 255, 255, 0.12),
+);
 
-// // Create the theme object
-// $custom-theme: mat-light-theme((color: (primary: mat-palette($primary-palette),
-//         accent: mat-palette($secondary-palette),
-//         background: $background-palette,
-//       ),
-//     ));
+// Create the theme object
+$custom-theme: mat-light-theme((color: (primary: mat-palette($primary-palette),
+        accent: mat-palette($secondary-palette),
+        background: $background-palette,
+      ),
+    ));
 
-// // Include the theme styles in the application
-// @include mat-core();
-// @include angular-material-theme($custom-theme);
+// Include the theme styles in the application
+@include mat-core();
+@include angular-material-theme($custom-theme);

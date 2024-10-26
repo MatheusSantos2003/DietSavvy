@@ -33,13 +33,13 @@ export class SidebarComponent {
   @Input() items: SideBarItem[] = [
     {
       label: 'Home',
-      icon: 'bi-house',
+      icon: 'fa-solid fa-house',
       link: 'home',
       active: false
     },
     {
       label: 'Alimentos',
-      icon: 'bi-egg-fried',
+      icon: 'fa-solid fa-egg',
       link: 'food',
       active: true,
     },
@@ -47,7 +47,7 @@ export class SidebarComponent {
       // TODO[may 3, 2024]: add a better icon since bootstrap doesn't have one for this
       // like a plate of food, a plate with a fork and knife, something like that
       label: 'Dieta',
-      icon: 'bi-file-earmark-medical',
+      icon: 'fa-solid fa-utensils',
       link: 'diet',
       active: false
     }

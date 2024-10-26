@@ -6,7 +6,7 @@
     "test:frontend": "nx exec -- nx test nutrition-frontend",
     "test:backend": "nx exec -- nx test nutrition-backend",
     "serve:backend": "nx serve nutrition-backend",
-    "serve:frontend": "nx serve nutrition-frontend",
+    "serve:frontend": "nx serve nutrition-frontend --port 4200 --disable-host-check",
     "frontend:dev:docker": "nx serve nutrition-frontend --host 0.0.0.0 --port 4200",
     "backend:dev:docker": "nx serve nutrition-backend --host 0.0.0.0 --port 3000"
   },
@@ -75,6 +75,7 @@
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/typeorm": "^10.0.0",
     "@nrwl/cli": "^15.9.3",
+    "animate.css": "^4.1.1",
     "axios": "1.6.8",
     "bootstrap-icons": "^1.11.3",
     "csv-parser": "^3.0.0",

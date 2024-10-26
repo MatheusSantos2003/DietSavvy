@@ -30,8 +30,8 @@ export class AlertService {
         data: {
           msg: 'First User Acess'
         },
-        height: '90%',
-        width: '100%',
+        height: '80%',
+        width: '60%',
         panelClass:'custom-container',
         disableClose: true
       }).afterClosed();

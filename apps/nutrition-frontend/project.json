@@ -24,7 +24,7 @@
           "apps/nutrition-frontend/src/assets"
         ],
         "styles": [
-          "src/custom-theme.scss",
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
           "apps/nutrition-frontend/src/styles.scss"
         ],
         "scripts": []

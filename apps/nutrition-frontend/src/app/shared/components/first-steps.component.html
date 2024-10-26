@@ -1,57 +1,224 @@
-<div class="flex p-8 items-start justify-start w-full h-full border-2 border-dark_primary bg-dark_secondary text-primary-500 text-xl">
-
+<div
+  class="flex p-8 items-start justify-start w-full h-full border-2 border-dark_primary bg-dark_secondary text-primary-500 text-xl"
+>
   <div id="container" class="w-full">
-
-    <div id="header" class="text-center w-full flex flex-col justify-center  items-center">
+    <div
+      id="header"
+      class="text-center w-full flex flex-col justify-center items-center"
+    >
       <span>
         <h2 class="font-extrabold text-4xl">Bem vindo ao DietSavvy!</h2>
       </span>
       <span>
-        <h4 class="text-2xl italic">Vamos dar os primeiros passos!</h4>
+        <h4 class="text-2xl font-semibold italic">
+          Vamos dar os primeiros passos!
+        </h4>
       </span>
     </div>
 
-    <div id="main-content" class="p-2 m-2 w-full h-full mt-20">
+    <div class="flex flex-col justify-center items-center mt-10" *ngIf="currentStep === 0" >
+      <span class="text-3xl"> Você sabe sua ingestão calorica? </span>
+      <p class="text-base font-semibold italic">
+        Caso não, vamos te ajudar a descobrir!
+      </p>
+    </div>
 
-      <div id="step-1" class="w-full h-[600px] m-2 p-2 ">
+    <div id="main-content" class="p-2  w-full h-full mt-5 overflow-clip">
 
-        <div class="flex flex-col justify-center items-center">
-          <span class="text-3xl">
-            Você sabe sua ingestão calorica?
-          </span>
-          <!-- <span class="text-xl text-center mt-4">
-            <p>Caso não, não se preocupe!  Vamos te ajudar a descobrir isso.</p>
-            Para comecar, adicione o seu peso e a sua altura.
-          </span> -->
+      <ng-container *ngIf="currentStep === 0">
+
+        <div
+        id="step-1"
+        class="w-full h-full min-h-[26rem]  p-1 animate__animated animate__slideInRight animate__faster">
+
+        <div class="w-full h-full flex justify-between items-center gap-10">
+
+          <div class="w-full flex justify-center items-center">
+            <button (click)="changeUserKnowsCalories(true)" class="w-full hover:bg-primary-700 bg-primary-500 text-white h-80 p-2 rounded-lg  font-semibold">Sim</button>
+          </div>
+
+          <div class="w-full flex justify-center items-center">
+            <button (click)="changeUserKnowsCalories(false)" class="w-full hover:bg-primary-700 bg-primary-500 text-white h-80  p-2 rounded-lg font-semibold">Não</button>
+          </div>
+
         </div>
 
-        <div class="grid grid-cols-2">
+        </div>
+      </ng-container>
 
-          <div class="col-span-1 h-full flex  items-start">
+      <ng-container *ngIf="currentStep === 1">
+        <div
+          id="step-1"
+          class="w-full min-h-[24rem] m-2 p-1 animate__animated animate__slideInRight animate__faster"
+        >
 
-            <div class="w-[300px] h-[500px] border-2 border-solid border-primary-500 m-4 p-2 flex justify-start items-start  ">
+
+          <div class="w-full h-full min-h-[26rem] flex justify-center items-center" *ngIf="userKnowsCalories">
+
+            <div class="m-4 p-2 flex justify-start items-start">
               <div class="flex justify-center items-center gap-2">
-                <i class="bi bi-fire"></i>
+                <i class="bi bi-fire mt-6"></i>
 
-                  <input type="text" placeholder="ex: 1200" class=" p-2 w-full bg-black border-solid rounded-lg" pattern="[0-9]">
+                <div class="w-full">
+                  <label for="calories" class="mb-2 font-semibold">
+                    <i class="fa-solid fa-fire"></i> Ingestão calorica
+                  </label>
+                  <input
+                    type="text"
+                    [formControl]="calories"
+                    (keypress)="isValidNumericKey($event)"
+                    name="calories"
+                    placeholder="ex: 1200"
+                    class="p-2 w-full bg-black rounded-lg text-white"
+                    [ngClass]="{
+                      'border-red-500': calories.invalid && calories.touched,
+                      'border-solid': calories.invalid && calories.touched,
+                      'border-2': calories.invalid && calories.touched
+                    }"
+                  />
+                </div>
 
-
-                <span>Kcal</span>
+                <span class="font-semibold mt-6">Kcal</span>
               </div>
             </div>
 
           </div>
 
-          <div class="col-span-1">
+          <div class="w-full h-full min-h-[26rem] flex justify-center items-center" *ngIf="!userKnowsCalories">
+
+            <form action="#" method="post" class="w-4/5 flex flex-col gap-1">
+              <div class="mb-4">
+                <label
+                  class="block text-primary-500 font-bold mb-2"
+                  for="weight"
+                >
+                  <i class="fas fa-weight mr-2"></i>Peso (Kg)
+                </label>
+                <input
+                  class="appearance-none border rounded-lg w-full py-2 px-3 bg-black text-white leading-tight focus:outline-none focus:shadow-outline"
+                  id="weight"
+                  type="text"
+                  [formControl]="weight"
+                  (keypress)="isValidNumericKey($event)"
+                  placeholder="ex: 80"
+                  [ngClass]="{
+                    'border-red-500': weight.invalid && weight.touched,
+                    'border-solid': weight.invalid && weight.touched,
+                    'border-2': weight.invalid && weight.touched
+                  }"
+
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  class="block text-primary-500 font-bold mb-2"
+                  for="height"
+                >
+                  <i class="fas fa-ruler-vertical mr-2"></i>Altura (cm)
+                </label>
+                <input
+                  class="appearance-none border rounded-lg w-full py-2 px-3 bg-black text-white leading-tight focus:outline-none focus:shadow-outline"
+                  id="height"
+                  type="text"
+                  placeholder="ex: 174"
+                  [formControl]="height"
+                  (keypress)="isValidNumericKey($event)"
+                  [ngClass]="{
+                    'border-red-500': height.invalid && height.touched,
+                    'border-solid': height.invalid && height.touched,
+                    'border-2': height.invalid && height.touched
+                    }"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  class="block text-primary-500 font-bold mb-2"
+                  for="gender"
+                >
+                  <i class="fas fa-venus-mars mr-2"></i>Gênero
+                </label>
+                <select
+                  class="appearance-none border rounded-lg w-full py-2 px-3 bg-black text-white leading-tight focus:outline-none focus:shadow-outline"
+                  id="gender"
+                  [formControl]="gender"
+                  [ngClass]="{
+                        'border-red-500': gender.invalid && gender.touched,
+                        'border-solid': gender.invalid && gender.touched,
+                        'border-2': gender.invalid && gender.touched
+                  }"
+                >
+                  <option value="" disabled selected>Selecione seu gênero </option>
+                  <option value="male">Masculino</option>
+                  <option value="female">Feminino</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label class="block text-primary-500 font-bold mb-2" for="age">
+                  <i class="fas fa-birthday-cake mr-2"></i>Idade (anos)
+                </label>
+                <input
+                  class="appearance-none border rounded-lg w-full py-2 px-3 bg-black text-white leading-tight focus:outline-none focus:shadow-outline"
+                  type="text"
+                  [formControl]="age"
+                  placeholder="ex: 30"
+                  (keypress)="isValidNumericKey($event)"
+                  [ngClass]="{
+                    'border-red-500': age.invalid && age.touched,
+                    'border-solid': age.invalid && age.touched,
+                    'border-2': age.invalid && age.touched
+                    }"
+                />
+              </div>
+            </form>
 
           </div>
 
         </div>
+      </ng-container>
+
+      <ng-container *ngIf="currentStep === 2">
+        <div
+          id="step-2"
+          class="w-full min-h-[24rem] m-2 p-2 animate__animated animate__slideInRight animate__faster"
+        >
+          Passo 2
+        </div>
+      </ng-container>
 
 
+      <ng-container *ngIf="currentStep === 3">
+        <div
+          id="step-2"
+          class="w-full min-h-[24rem] m-2 p-2 animate__animated animate__slideInRight animate__faster"
+        >
+          Passo 3
+        </div>
+      </ng-container>
 
+    </div>
+    <div class="w-full h-full">
+      <div class="flex justify-between items-start">
+        <div>
+          <button
+            (click)="previousStep()"
+            *ngIf="currentStep > 0 "
+            class="border-primary-500 border-solid border text-primary-500 p-2 rounded-lg w-32 font-semibold"
+          >
+          <i class="fa-solid fa-arrow-left"></i>
+            Voltar
+          </button>
+        </div>
+
+        <div *ngIf="currentStep !== 0">
+          <button
+            (click)="nextStep()"
+            class="bg-primary-500 text-white p-2 rounded-lg w-32 font-semibold"
+          >
+          Continuar
+          <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
-
+    </div>
   </div>
-
 </div>
